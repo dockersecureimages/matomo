@@ -6,28 +6,28 @@ Matomo, image is based on the Alpine base image with 0 vulnerabilities.
 
 Security scanning using Clair
 ```
-clair-scanner secureimages/matomo:3.13.3-alpine-3.11.3
-2020/02/25 11:10:57 [INFO] ▶ Start clair-scanner
-2020/02/25 11:11:02 [INFO] ▶ Server listening on port 9279
-2020/02/25 11:11:02 [INFO] ▶ Analyzing c60e0e5e0b8cce2c353f5af4186afb2cde56680bc78ff165fd2368a003530178
-2020/02/25 11:11:03 [INFO] ▶ Analyzing 063737f814467d63e9fabb29b2bedf0fc72b67aeadac35e531c41179e95e0876
-2020/02/25 11:11:03 [INFO] ▶ Analyzing 35d46ecb5f536aab507d8062e676c3d8880ef528ad104d693ebf4d5120fb6d7a
-2020/02/25 11:11:03 [INFO] ▶ Analyzing 487748ead91341a67cb93f37a105ad6c615dc2db09783be5450b79882317ef66
-2020/02/25 11:11:03 [INFO] ▶ Analyzing e1976b66727621a9203a0c47d9ee9fdb9de350375591645ba790e0543d5ebb19
-2020/02/25 11:11:03 [INFO] ▶ Analyzing 5a780ae8e0b460f2874b9fe64a2feecec56859c469e03bc9d4fe41ad0917afaf
-2020/02/25 11:11:03 [INFO] ▶ Analyzing 53fe8d6ec0db60dad44f40fe683072d007fa90a43e72922c12da9642f3923b58
-2020/02/25 11:11:03 [INFO] ▶ Image [secureimages/matomo:3.13.3-alpine-3.11.3] contains NO unapproved vulnerabilities
+clair-scanner secureimages/matomo:3.13.3-alpine-3.11.5
+2020/03/24 18:04:48 [INFO] ▶ Start clair-scanner
+2020/03/24 18:04:53 [INFO] ▶ Server listening on port 9279
+2020/03/24 18:04:53 [INFO] ▶ Analyzing dac63304c60354902922613d675ec533c6e10879f72d49b7602575ae5d5f9257
+2020/03/24 18:04:53 [INFO] ▶ Analyzing 5dcd8a8229e5d18d786cf6a4cfd0236be357198cb7dab1d751ef1b92fb1e0700
+2020/03/24 18:04:53 [INFO] ▶ Analyzing b1ed829cb280a99c05bb1fa28f87fdd303418350d337f93180dfe9651b3ced6d
+2020/03/24 18:04:53 [INFO] ▶ Analyzing c8c7f6983c76679cf9f6d12cb924da9dc523dabad9b8d07fda8a50907e264651
+2020/03/24 18:04:53 [INFO] ▶ Analyzing 7b14a1fa0be94b7466c60cae572821a88f54b910a16803ae20bbc92d94031b04
+2020/03/24 18:04:53 [INFO] ▶ Analyzing 61429b864e14f60fbc32d2473ad341377acf81537e802090e5fc53a1b04f0dd2
+2020/03/24 18:04:53 [INFO] ▶ Analyzing fe24665ac454d3e67ae813f4774c3168dc721e4937d55e97e76d1412a9a81cf1
+2020/03/24 18:04:53 [INFO] ▶ Image [secureimages/matomo:3.13.3-alpine-3.11.5] contains NO unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.4.4 --no-progress secureimages/matomo:3.13.3-alpine-3.11.3
-2020-02-25T09:11:07.665Z        INFO    Need to update DB
-2020-02-25T09:11:07.665Z        INFO    Downloading DB...
-2020-02-25T09:11:11.492Z        INFO    Reopening DB...
-2020-02-25T09:11:18.620Z        INFO    Detecting Alpine vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.5.3 --no-progress secureimages/matomo:3.13.3-alpine-3.11.5
+2020-03-24T16:04:56.248Z        INFO    Need to update DB
+2020-03-24T16:04:56.248Z        INFO    Downloading DB...
+2020-03-24T16:05:00.849Z        INFO    Reopening DB...
+2020-03-24T16:05:08.330Z        INFO    Detecting Alpine vulnerabilities...
 
-secureimages/matomo:3.13.3-alpine-3.11.3 (alpine 3.11.3)
+secureimages/matomo:3.13.3-alpine-3.11.5 (alpine 3.11.5)
 ========================================================
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
 ```
@@ -42,39 +42,39 @@ docker pull matomo:3.13.3
 Security scanning using Clair
 ```
 clair-scanner matomo:3.13.3
-2020/02/25 11:11:24 [INFO] ▶ Start clair-scanner
-2020/02/25 11:11:33 [INFO] ▶ Server listening on port 9279
-2020/02/25 11:11:33 [INFO] ▶ Analyzing 989d65069bef6e5e904082d12fe5b1e179e9c76a3f54745567bd588f49b0e393
-2020/02/25 11:11:33 [INFO] ▶ Analyzing ec267a14247ada8ef12a80c2b725bb851c16eff48bf41df3ad67ed9af1e7ff0e
-2020/02/25 11:11:33 [INFO] ▶ Analyzing 5b38feeb64bbe56a5ed8105eb7a530b25a383d6b7482a7631d946a2767de2475
-2020/02/25 11:11:33 [INFO] ▶ Analyzing ee310ee0ae227c33f44567bc6906db9f50bf418a8f129aa987e563c9fe9ad22b
-2020/02/25 11:11:33 [INFO] ▶ Analyzing 319e1ff6e310dc3e10f81f4a585fe14b2b824cba557e7da4ea276aa969d1130f
-2020/02/25 11:11:33 [INFO] ▶ Analyzing 9c6aae902d21a7a2beb8713054190dff70f4464d8d03a2c101348425e1e2a8fa
-2020/02/25 11:11:33 [INFO] ▶ Analyzing e72a464567dc3ed8b175c0101459d3da8a8387a995d3c2055e0a6bda4959fa6c
-2020/02/25 11:11:33 [INFO] ▶ Analyzing 67d7310ba27cb1da9eee337cc4e13ddd138ab78e91b8088f4d8cecacf4e32fb1
-2020/02/25 11:11:33 [INFO] ▶ Analyzing 203dc71aa2e286410979e767f4af54051f01c5177b667a1ac72e5c78d08fbcef
-2020/02/25 11:11:33 [INFO] ▶ Analyzing f27088ff9a7ae1b92d0e7274e60101a2cf43ad2223bb656b39bc37345db30384
-2020/02/25 11:11:33 [INFO] ▶ Analyzing a324f37e8ca1538f3634f17fa9325a7a79f13a186f34d80cb91ac67878f4905c
-2020/02/25 11:11:33 [INFO] ▶ Analyzing 0c967aded1cb259218542e432f7be8fe8d5c5bf710d932b82ec80c09ebb9f560
-2020/02/25 11:11:33 [INFO] ▶ Analyzing 8bbdab1d19ba06e5334897299da6b6b7d05d7b0eb6f916f229484ffe855aa86a
-2020/02/25 11:11:33 [INFO] ▶ Analyzing 7b1d5e757871070db7b2ee1871d989cc8ec9a46728f4229a3d77084b5eaaa851
-2020/02/25 11:11:33 [INFO] ▶ Analyzing 7ea10394b4a024b140cb1ac3c79bde629309d408a1290207f3e8286ed8392c80
-2020/02/25 11:11:33 [INFO] ▶ Analyzing 63cc9966e5b66449885236931b566d756ecc2fd46a2ff4d4859f02f2e0a0665e
-2020/02/25 11:11:34 [INFO] ▶ Analyzing bc2baa480a24dfc829f3876a9989cfe4f67b4553d30177dc126082e7654cf331
-2020/02/25 11:11:34 [INFO] ▶ Analyzing 72493c295e98445b33430dd72595ce024e31f7a7146b4ab296adbe04ee1b5b38
-2020/02/25 11:11:34 [WARN] ▶ Image [matomo:3.13.3] contains 315 total vulnerabilities
-2020/02/25 11:11:34 [ERRO] ▶ Image [matomo:3.13.3] contains 315 unapproved vulnerabilities
+2020/03/24 18:05:13 [INFO] ▶ Start clair-scanner
+2020/03/24 18:05:21 [INFO] ▶ Server listening on port 9279
+2020/03/24 18:05:21 [INFO] ▶ Analyzing 6570bae7a5cba7e826bbfc3b9d579975c86edcf9f2a17837229bc65352baa1d4
+2020/03/24 18:05:21 [INFO] ▶ Analyzing 779e261953f7ce9e550078c2117816909b0ce37a5654afd99065c80a6e044f8c
+2020/03/24 18:05:21 [INFO] ▶ Analyzing 65ada13e43f5fde0b032d7bc3599045b0cc68cc8a63b976f10651c554d423406
+2020/03/24 18:05:22 [INFO] ▶ Analyzing 90265186e4fa98a9209b39677f4dba0621f4357b5ec9f78af6a60c448b39cdfd
+2020/03/24 18:05:22 [INFO] ▶ Analyzing 29352e3f7daeb4a11a4d0d746051905b43c49fd416d615f19cb8a6ea9294eaf3
+2020/03/24 18:05:22 [INFO] ▶ Analyzing 12a2a58886ea53ad72bed1d6f2ebe1eb0a96e444579ceae48ad7edcfd73f2dc0
+2020/03/24 18:05:22 [INFO] ▶ Analyzing 3aa0509e4d206b2e8e538e5f26b3f4f1bf41d766880dab7af668e28b6eab1216
+2020/03/24 18:05:22 [INFO] ▶ Analyzing 75897c804c4ecc75f4ccb38507277f1aa60b59ff702bd131e300ad7ffe8663bf
+2020/03/24 18:05:22 [INFO] ▶ Analyzing b001d4300604e459463d9b847246b118597a8f93a0549c3b0bdc900ca063ca04
+2020/03/24 18:05:22 [INFO] ▶ Analyzing 5ca088991b8e03c430a40c55597a0e18996539b54dcd563119b46b9c65f10fd8
+2020/03/24 18:05:22 [INFO] ▶ Analyzing 6d4760c0f18263e361011ae40f373e35a61794316756f02437b123b7d2b79e2e
+2020/03/24 18:05:22 [INFO] ▶ Analyzing d5862340d2a17402894f90c88964c1e03908ab32c21f206a0ba2a5399af4f60e
+2020/03/24 18:05:22 [INFO] ▶ Analyzing 4925331b55ddcf81ca736da80bbd65c732a970668941eb7237dad75f713e55db
+2020/03/24 18:05:22 [INFO] ▶ Analyzing 22f38cd3bfda6633cf52b3cf25db0c08968f79f983c72e3ec057cce7bb6e939e
+2020/03/24 18:05:22 [INFO] ▶ Analyzing 53a3362713966969901e9558f0aa0533b591bb67a396216538b031d2cafb5dc2
+2020/03/24 18:05:22 [INFO] ▶ Analyzing 87de274fc0faf6b196d5eb690e69a1e5feac6f88a62a5243d0dd0d06bfb82415
+2020/03/24 18:05:22 [INFO] ▶ Analyzing 8aef925f1d0d458419c0867f8d7ce45dba09c708de5c20cb3639ea8c5d85e7b6
+2020/03/24 18:05:22 [INFO] ▶ Analyzing 56b59e89cfca15bee94a5a7632de717a8bda26cc59d073bb7a71e6ac3683cb6f
+2020/03/24 18:05:22 [WARN] ▶ Image [matomo:3.13.3] contains 234 total vulnerabilities
+2020/03/24 18:05:22 [ERRO] ▶ Image [matomo:3.13.3] contains 234 unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.4.4 --no-progress matomo:3.13.3
-2020-02-25T09:11:36.723Z        INFO    Need to update DB
-2020-02-25T09:11:36.723Z        INFO    Downloading DB...
-2020-02-25T09:11:40.292Z        INFO    Reopening DB...
-2020-02-25T09:11:49.737Z        INFO    Detecting Debian vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.5.3 --no-progress matomo:3.13.3
+2020-03-24T16:05:25.545Z        INFO    Need to update DB
+2020-03-24T16:05:25.545Z        INFO    Downloading DB...
+2020-03-24T16:05:29.261Z        INFO    Reopening DB...
+2020-03-24T16:05:39.333Z        INFO    Detecting Debian vulnerabilities...
 
-matomo:3.13.3 (debian 10.2)
+matomo:3.13.3 (debian 10.3)
 ===========================
-Total: 576 (UNKNOWN: 1, LOW: 80, MEDIUM: 392, HIGH: 93, CRITICAL: 10)
+Total: 498 (UNKNOWN: 1, LOW: 63, MEDIUM: 373, HIGH: 56, CRITICAL: 5)
 ```
