@@ -3,7 +3,7 @@ LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="hireus@secureimages.dev"
 
-ARG MATOMO_VERSION=3.13.3
+ARG MATOMO_VERSION=3.13.4
 
 RUN apk add --no-cache apache2 bash curl ca-certificates tzdata mysql-client
 
