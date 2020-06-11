@@ -1,9 +1,9 @@
-FROM alpine:3.11.6
+FROM alpine:3.12.0
 LABEL website="Secure Docker Images https://secureimages.dev"
 LABEL description="We secure your business from scratch."
 LABEL maintainer="hireus@secureimages.dev"
 
-ARG MATOMO_VERSION=3.13.5
+ARG MATOMO_VERSION=3.13.6
 
 RUN apk add --no-cache apache2 bash curl ca-certificates tzdata mysql-client
 
