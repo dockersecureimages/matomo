@@ -2,77 +2,88 @@
 
 Matomo, image is based on the Alpine base image with 0 vulnerabilities.
 
-## Current Docker image (~402MB)
+## Current Docker image (~405MB)
 
 Security scanning using Clair
 ```
-clair-scanner secureimages/matomo:3.14.0-alpine-3.12.0
-2020/07/21 13:49:05 [INFO] ▶ Start clair-scanner
-2020/07/21 13:49:10 [INFO] ▶ Server listening on port 9279
-2020/07/21 13:49:10 [INFO] ▶ Analyzing 76de98d374759ed05698adec9aa042db7bc0f62c25fb612c0f9be1419a581421
-2020/07/21 13:49:11 [INFO] ▶ Analyzing 6bf1d1800d45329d90cb06d8624e373597969a6fb82849fdfcdb60c12c984b06
-2020/07/21 13:49:11 [INFO] ▶ Analyzing 3e3c8226f4340beaa13f30a8be4d4250f0208594b4448da8d2301de30a9615b9
-2020/07/21 13:49:11 [INFO] ▶ Analyzing 4af89cd6978cd25d53121eb4db9e326ac2729ddf1750fdaea9549e55a1ed8c08
-2020/07/21 13:49:11 [INFO] ▶ Analyzing 4350fdf593f309cd057a2c305c50f7d0e05ac9c6f139fb61c045a565cf43342c
-2020/07/21 13:49:11 [INFO] ▶ Analyzing bd94cb4ebafb9dc57fdd50d500807b53ccd94d0a0573b6f94827b1483ceb28f0
-2020/07/21 13:49:11 [INFO] ▶ Analyzing 316635ca8752d642eb3d8fc6e27db083a1606fe493f37dc2e6aa2e8579a0a371
-2020/07/21 13:49:12 [INFO] ▶ Image [secureimages/matomo:3.14.0-alpine-3.12.0] contains NO unapproved vulnerabilities
+clair-scanner secureimages/matomo:4.1.1-alpine-3.13.2
+2021/02/20 11:37:43 [INFO] ▶ Start clair-scanner
+2021/02/20 11:37:48 [INFO] ▶ Server listening on port 9279
+2021/02/20 11:37:48 [INFO] ▶ Analyzing b73bac2fe5a7b9d1abcbf0138798281e20b11e59b4605b104d38e914fa35b4d2
+2021/02/20 11:37:48 [INFO] ▶ Analyzing 326a8eef51a72fb8d74afda723a4c2b1efe72d6ad00533b61382b086951f0a31
+2021/02/20 11:37:48 [INFO] ▶ Analyzing bf7ed71036dc9157df7b42561b5a2edb2392aac744d3b88e02cd0592ecc3f841
+2021/02/20 11:37:48 [INFO] ▶ Analyzing f46228b5e17e222d5b17f50347f3df87f139cda07a09ec30a34617ec25473aa5
+2021/02/20 11:37:48 [INFO] ▶ Analyzing 1d3be7e7f97e6dbf26f29aa04e748d077b17e0db3fa993c25425ac1eebf318d0
+2021/02/20 11:37:48 [INFO] ▶ Analyzing 02fae628c546f41a519262b594221b91a7dac5f6cbda9dc471640754a092720d
+2021/02/20 11:37:48 [INFO] ▶ Analyzing 035ed27b0301a1a4ef7541335c354f5f2ac67a3e60277fb7b33ef30e05da418d
+2021/02/20 11:37:48 [WARN] ▶ Image [secureimages/matomo:4.1.1-alpine-3.13.2] contains 1 total vulnerabilities
+2021/02/20 11:37:48 [ERRO] ▶ Image [secureimages/matomo:4.1.1-alpine-3.13.2] contains 1 unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.9.2 --no-progress secureimages/matomo:3.14.0-alpine-3.12.0
-2020-07-21T10:50:11.227Z        INFO    Need to update DB
-2020-07-21T10:50:11.227Z        INFO    Downloading DB...
-2020-07-21T10:50:23.089Z        INFO    Detecting Alpine vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.16.0 --no-progress secureimages/matomo:4.1.1-alpine-3.13.2
+2021-02-20T11:37:50.088Z        INFO    Need to update DB
+2021-02-20T11:37:50.089Z        INFO    Downloading DB...
+2021-02-20T11:37:58.777Z        INFO    Detecting Alpine vulnerabilities...
+2021-02-20T11:37:58.795Z        INFO    Detecting  vulnerabilities...
 
-secureimages/matomo:3.14.0-alpine-3.12.0 (alpine 3.12.0)
-========================================================
+secureimages/matomo:4.1.1-alpine-3.13.2 (alpine 3.13.2)
+=======================================================
 Total: 0 (UNKNOWN: 0, LOW: 0, MEDIUM: 0, HIGH: 0, CRITICAL: 0)
+
+var/www/html/package-lock.json
+==============================
+Total: 9 (UNKNOWN: 0, LOW: 0, MEDIUM: 8, HIGH: 1, CRITICAL: 0)
 ```
 
-## Official Docker image (~474MB)
+## Official Docker image (~472MB)
 
 [https://hub.docker.com/_/matomo](https://hub.docker.com/_/matomo)
 ```
-docker pull matomo:3.14.0
+docker pull matomo:4.1.1
 ```
 
 Security scanning using Clair
 ```
-clair-scanner matomo:3.14.0
-2020/07/21 13:50:39 [INFO] ▶ Start clair-scanner
-2020/07/21 13:50:48 [INFO] ▶ Server listening on port 9279
-2020/07/21 13:50:48 [INFO] ▶ Analyzing 542fc11795096931bf8707e1fd00e4aaa0ba8d98bd89fc281fc9fbec21c52ed8
-2020/07/21 13:50:48 [INFO] ▶ Analyzing 41359e877d830e2cbbece63ad01d1063322479cc13d593b39819e62cbadc12eb
-2020/07/21 13:50:48 [INFO] ▶ Analyzing 2251b1df86d1b4de1724e98de76e24e52f30c3336f36e5692ebbe119ad049168
-2020/07/21 13:50:49 [INFO] ▶ Analyzing bf1075187224c74879bae0c9c291fc76867d80912f43d4ca97b1e90060e46551
-2020/07/21 13:50:49 [INFO] ▶ Analyzing 4965de01bcecba1813edf9e296bda56bbb1847ac7b18ad93d9010a5e98d2b39e
-2020/07/21 13:50:49 [INFO] ▶ Analyzing e6413fc8bdcf26f07de8f0d98cb45c5f3c68935762b7a7212d0dfec49d271a6b
-2020/07/21 13:50:49 [INFO] ▶ Analyzing 35e9e504b0c75782da5ad9351c7bdb3a592e3e3d8cb94d7e7e19939544a322dc
-2020/07/21 13:50:49 [INFO] ▶ Analyzing e9455eb0e6b98365fa510d069fd11ef23b1a9ded2ecf950759b02237ee357381
-2020/07/21 13:50:49 [INFO] ▶ Analyzing bf14c95b2d68cf89570a37de2dcf01e11baa46d5d542d207c1a63b736c9e24e6
-2020/07/21 13:50:49 [INFO] ▶ Analyzing bc87d8e44892e005f7670681076074dd9086f317a6c7a007ce726c6ce904f0f6
-2020/07/21 13:50:49 [INFO] ▶ Analyzing abfa35e9129c24945a2e1b5e2b6cd310a0dc5e4d4ba05fe7dfd98ab96c0b928b
-2020/07/21 13:50:49 [INFO] ▶ Analyzing 63b1a638095cf1ea7a1f824b024eafa310139e0700e38c02d4a27b8e5167176f
-2020/07/21 13:50:49 [INFO] ▶ Analyzing ab2695765517cc9a48bf2b94ffb1b80cfc7d3928d0007eef51e473da92b41601
-2020/07/21 13:50:49 [INFO] ▶ Analyzing 756ee328c1fd937f82bc8b85697197ce85642762db13e078ed05a44937670d48
-2020/07/21 13:50:49 [INFO] ▶ Analyzing 2367dac608519dbec2c83f400fd8e41134a592e13906f1d483539229acea5f1a
-2020/07/21 13:50:49 [INFO] ▶ Analyzing 5707dbd2c35d45bbfd812a24317cb62bf3d77dfe660c46b2f60380563f4695c8
-2020/07/21 13:50:49 [INFO] ▶ Analyzing 6babb5dc2895b9e5464f61bfd67d8afbf13c76d1c36e0d8e2cafe9abae7e4019
-2020/07/21 13:50:49 [INFO] ▶ Analyzing 387549ef65901f6df4b0a27de3255f45ed17213636eaa51991e49d971f14481f
-2020/07/21 13:50:49 [WARN] ▶ Image [matomo:3.14.0] contains 269 total vulnerabilities
-2020/07/21 13:50:49 [ERRO] ▶ Image [matomo:3.14.0] contains 269 unapproved vulnerabilities
+clair-scanner matomo:4.1.1
+2021/02/20 11:38:04 [INFO] ▶ Start clair-scanner
+2021/02/20 11:38:11 [INFO] ▶ Server listening on port 9279
+2021/02/20 11:38:11 [INFO] ▶ Analyzing 6af71e5c332cf855c5b24056f794cc905defa9f82e39e3636f459e918bed2e6e
+2021/02/20 11:38:12 [INFO] ▶ Analyzing abe98a89fb5f872158e60c0c7f015a2bae2d6305413a37a6121a857392c54725
+2021/02/20 11:38:12 [INFO] ▶ Analyzing 4faea366e01071ca46dc8004d6d970b17c365461059070c090d17b2fa9bcca09
+2021/02/20 11:38:12 [INFO] ▶ Analyzing 2815f275ec12f831fdf19f247385993afcd8a8cdcd12fc9b91fdd86b00abe4a0
+2021/02/20 11:38:12 [INFO] ▶ Analyzing d8831d2479ff413da80b464c7d3998979aa590aa64c622d509e498dbaa5a5d4f
+2021/02/20 11:38:12 [INFO] ▶ Analyzing a18b74b0e7ad0f7e4b98a9e6dd722b62ddf3ab17bfd0e7ff26bfa49e9e510e2a
+2021/02/20 11:38:12 [INFO] ▶ Analyzing 8f6dab939abc2f715d67a1c485899306dcef7aa437c61975fc16bef142e99f9d
+2021/02/20 11:38:12 [INFO] ▶ Analyzing a50a530650ea6827a01f86a30fdc93a899aed48b53f662e6bbc24e0062de6a02
+2021/02/20 11:38:12 [INFO] ▶ Analyzing c17fe582794aa0ea5c51019e5d3496c9130abdb76ad338c5ad04f855498a4055
+2021/02/20 11:38:12 [INFO] ▶ Analyzing 5dde5eddf02aed0756e2f21ea070050411e804d80bb894bbc03aeca6762aca00
+2021/02/20 11:38:12 [INFO] ▶ Analyzing 3ad59e648ac13458f8738c546b370ec80e47dfc60241a7775e8cddc05d3bf3c9
+2021/02/20 11:38:12 [INFO] ▶ Analyzing 2d713a886601a9621c2cb4b03853f1df55b0f814a642373bb6dfd82a1b244bf7
+2021/02/20 11:38:12 [INFO] ▶ Analyzing a85eabc2654489ed1f9380ca3392cdbf2f267ec4ff44d7801d8662cd8511abb8
+2021/02/20 11:38:12 [INFO] ▶ Analyzing dbf5850d4865b3a22619d2173f34192dcbb28057bd3a843aac32d9a3a12dc599
+2021/02/20 11:38:12 [INFO] ▶ Analyzing 693cbeec2baa859182b8edb8e3270d401a063f97db22a4f7fea4ce0c2e347d74
+2021/02/20 11:38:12 [INFO] ▶ Analyzing 3e28e7b460348db742d155170719eb1f58d5c2c57562bda60f99d8d0c0208ab2
+2021/02/20 11:38:12 [INFO] ▶ Analyzing 92eab8369c7d1fd748d70f5253608b33cbb6232cad8277534325ae92178f5dbf
+2021/02/20 11:38:12 [INFO] ▶ Analyzing 7859fdcd6161cf832aedf80c60a662a9a5d786de4c362626f9557a619e2daa89
+2021/02/20 11:38:12 [WARN] ▶ Image [matomo:4.1.1] contains 238 total vulnerabilities
+2021/02/20 11:38:12 [ERRO] ▶ Image [matomo:4.1.1] contains 238 unapproved vulnerabilities
 ```
 
 Security scanning using Trivy
 ```
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.9.2 --no-progress matomo:3.14.0
-2020-07-21T10:50:52.674Z        INFO    Need to update DB
-2020-07-21T10:50:52.674Z        INFO    Downloading DB...
-2020-07-21T10:51:08.066Z        INFO    Detecting Debian vulnerabilities...
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock:ro aquasec/trivy:0.16.0 --no-progress matomo:4.1.1
+2021-02-20T11:38:14.500Z        INFO    Need to update DB
+2021-02-20T11:38:14.500Z        INFO    Downloading DB...
+2021-02-20T11:38:24.753Z        INFO    Detecting Debian vulnerabilities...
+2021-02-20T11:38:24.794Z        INFO    Detecting  vulnerabilities...
 
-matomo:3.14.0 (debian 10.4)
-===========================
-Total: 553 (UNKNOWN: 0, LOW: 425, MEDIUM: 114, HIGH: 14, CRITICAL: 0)
+matomo:4.1.1 (debian 10.8)
+==========================
+Total: 558 (UNKNOWN: 6, LOW: 433, MEDIUM: 37, HIGH: 81, CRITICAL: 1)
+
+usr/src/matomo/package-lock.json
+================================
+Total: 9 (UNKNOWN: 0, LOW: 0, MEDIUM: 8, HIGH: 1, CRITICAL: 0)
 ```
